@@ -9,28 +9,45 @@
     <title>bingo</title>
 </head>
 <body>
-    <header>
-        <div class="header-name">ビンゴ</div>
-        <div class="none"></div>
-    </header>
-    <div class="main" id="app"> 
-        <div class="none"></div>
-        <div class="ss-button">
-            <div class="button-tag">
-                <button class="start" v-on:click="start">スタート</button>
-                <button class="stop" v-on:click="stop">ストップ</button>
+    <div id="app">
+        <header>
+            <div class="header-name">ビンゴ</div>
+            <div class="none"></div>
+            <div class="menu">
+                <div class="menu-tag menu-color" v-on:click="settingDisplay">
+                    <p>{{menu_name}}</p>
+                </div>
             </div>
-            
-        </div>
-        <div class="num-show">
-            <div class="num">
-                <h1>{{num}}</h1>
-            </div>
-        </div>
-        <div class="record-show">
-            <div class="record">
-                <a v-for="record in records"> {{record}}, </a>
+        </header>
+        <div class="main"> 
+            <div class="setting" v-bind:style="{display:displayChange}">
                 
+                    <div class="max-setting">
+                        <h3>ビンゴの最大の値</h3>
+                        <p>{{max}}</p>
+                        <input type="tel" v-model="max" v-on:input="maxInput">
+                    </div>
+                    
+
+            </div>
+            <div class="none"></div>
+            <div class="ss-button">
+                <div class="button-tag">
+                    <button class="start" v-on:click="start">スタート</button>
+                    <button class="stop" v-on:click="stop">ストップ</button>
+                </div>
+                
+            </div>
+            <div class="num-show">
+                <div class="num">
+                    <h1>{{num}}</h1>
+                </div>
+            </div>
+            <div class="record-show">
+                <div class="record">
+                    <a v-for="record in records"> {{record}}, </a>
+                    
+                </div>
             </div>
         </div>
     </div>
